@@ -1,4 +1,3 @@
-//go:generate goversioninfo -manifest=testdata/resource/goversioninfo.exe.manifest
 package main
 
 import (
@@ -24,7 +23,7 @@ var (
 func main() {
 	flag.Parse()
 
-	if (len(os.Args) < 2) {
+	if len(os.Args) < 2 {
 		fmt.Fprintln(os.Stderr, "Xoodyak Recursive Hasher Copyright (c) 2023 ALBANESE Research Lab\n")
 		fmt.Fprintln(os.Stderr, "Usage of", os.Args[0]+":")
 		fmt.Fprintf(os.Stderr, "%s [-c <hash.rmd>] [-b N] [-r] <file.ext>\n", os.Args[0])
