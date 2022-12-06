@@ -8,7 +8,7 @@
 
 Xoodyak builds upon the Xoodoo permutations and the duplex construction. 
 
-### Xoodyak Encryption Tool
+### Xoodyak AEAD Encryption Tool
 <pre>Usage of xoodyak:
 xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f &lt;file.ext&gt;
   -a string
