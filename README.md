@@ -31,7 +31,7 @@ xoodyaksum [-c &lt;hash.ext&gt;] [-r] &lt;file.ext&gt;
         Check hashsum file.
   -r    Process directories recursively.</pre></H3>
 
-<h3><pre>Usage of xoodyakmac:
+<pre>Usage of xoodyakmac:
 xoodyakmac [-k &lt;secret&gt;] -f &lt;file.ext&gt;
   -f string
         Target file. ('-' for STDIN)
