@@ -9,7 +9,7 @@
 
 Xoodyak builds upon the Xoodoo permutations and the duplex construction. 
 
-### Command-line Xoodyak Encryption Tool
+### Xoodyak Encryption Tool
 <pre>Usage of xoodyak:
 xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f &lt;file.ext&gt;
   -d    Decrypt instead Encrypt.
@@ -25,14 +25,14 @@ xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f &lt;file.ext&gt;
   -s string
         Salt. (for PBKDF2)</pre>
 
-### Command-line Xoodyak Recursive Hasher
+### Xoodyak Recursive Hasher
 <pre>Usage of xoodyaksum:
 xoodyaksum [-c &lt;hash.ext&gt;] [-r] &lt;file.ext&gt;
   -c string
         Check hashsum file.
   -r    Process directories recursively.</pre></H3>
 
-### Command-line Xoodyak MAC
+### Xoodyak MAC
 <pre>Usage of xoodyakmac:
 xoodyakmac [-k &lt;secret&gt;] -f &lt;file.ext&gt;
   -f string
