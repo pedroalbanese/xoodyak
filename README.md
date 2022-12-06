@@ -1,6 +1,7 @@
 # Xoodyak Tools
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](https://github.com/pedroalbanese/xoodyak/blob/master/LICENSE.md) 
 [![GoDoc](https://godoc.org/github.com/pedroalbanese/xoodyak?status.png)](http://godoc.org/github.com/pedroalbanese/xoodyak)
+[![GitHub downloads](https://img.shields.io/github/downloads/pedroalbanese/xoodyak/total.svg?logo=github&logoColor=white)](https://github.com/pedroalbanese/xoodyak/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pedroalbanese/xoodyak)](https://goreportcard.com/report/github.com/pedroalbanese/xoodyak)
 
  Xoodyak is a lightweight, versatile, cryptographic scheme suitable in constrained environments. It can be used for hashing, encryption, MAC computation and authenticated encryption.
