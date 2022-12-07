@@ -10,7 +10,7 @@ Xoodyak builds upon the Xoodoo permutations and the duplex construction.
 
 ### Xoodyak AEAD Encryption Tool
 <pre>Usage of xoodyak:
-xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f <file.ext>
+xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f &lt;file.ext&gt;
   -a string
         Additional Associated data.
   -d    Decrypt instead Encrypt.
