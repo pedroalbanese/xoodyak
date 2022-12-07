@@ -13,7 +13,7 @@ Xoodyak builds upon the Xoodoo permutations and the duplex construction.
 xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f &lt;file.ext&gt;
   -a string
         Additional Associated data.
-  -d    Decrypt instead Encrypt.
+  -d    Decrypt instead of Encrypt.
   -f string
         Target file. ('-' for STDIN)
   -h int
