@@ -10,18 +10,20 @@ Xoodyak builds upon the Xoodoo permutations and the duplex construction.
 
 ### Xoodyak AEAD Encryption Tool
 <pre>Usage of xoodyak:
-xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f &lt;file.ext&gt;
+xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f <file.ext>
   -a string
         Additional Associated data.
   -d    Decrypt instead Encrypt.
   -f string
         Target file. ('-' for STDIN)
+  -h int
+        HMAC-based key derivation function.
   -i int
         Iterations. (for PBKDF2) (default 1024)
   -k string
         128-bit key to Encrypt/Decrypt.
   -p string
-        PBKDF2.
+        Password-based key derivation function.
   -r    Generate random 128-bit cryptographic key.
   -s string
         Salt. (for PBKDF2)</pre>
