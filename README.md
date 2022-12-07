@@ -4,7 +4,7 @@
 [![GitHub downloads](https://img.shields.io/github/downloads/pedroalbanese/xoodyak/total.svg?logo=github&logoColor=white)](https://github.com/pedroalbanese/xoodyak/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/pedroalbanese/xoodyak)](https://goreportcard.com/report/github.com/pedroalbanese/xoodyak)
 
-Joan Daemen's [Xoodyak](https://csrc.nist.gov/CSRC/media/Projects/lightweight-cryptography/documents/round-2/spec-doc-rnd2/Xoodyak-spec-round2.pdf) is a lightweight, versatile, cryptographic scheme suitable in constrained environments. It can be used for hashing, encryption, MAC computation and authenticated encryption.
+[Xoodyak](https://csrc.nist.gov/CSRC/media/Projects/lightweight-cryptography/documents/round-2/spec-doc-rnd2/Xoodyak-spec-round2.pdf) is a lightweight, versatile, cryptographic scheme suitable in constrained environments. It can be used for hashing, encryption, MAC computation and authenticated encryption.
 
 Xoodyak builds upon the Xoodoo permutations and the duplex construction. 
 
