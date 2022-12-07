@@ -18,7 +18,7 @@ import (
 
 var (
 	aad    = flag.String("a", "", "Additional Associated data.")
-	dec    = flag.Bool("d", false, "Decrypt instead Encrypt.")
+	dec    = flag.Bool("d", false, "Decrypt instead of Encrypt.")
 	file   = flag.String("f", "", "Target file. ('-' for STDIN)")
 	iter   = flag.Int("i", 1024, "Iterations. (for PBKDF2)")
 	key    = flag.String("k", "", "128-bit key to Encrypt/Decrypt.")
