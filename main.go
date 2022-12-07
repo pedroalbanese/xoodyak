@@ -6,7 +6,9 @@ import (
 	"encoding/hex"
 	"flag"
 	"fmt"
+	"golang.org/x/crypto/hkdf"
 	"golang.org/x/crypto/pbkdf2"
+	"hash"
 	"io"
 	"log"
 	"os"
@@ -20,8 +22,9 @@ var (
 	file   = flag.String("f", "", "Target file. ('-' for STDIN)")
 	iter   = flag.Int("i", 1024, "Iterations. (for PBKDF2)")
 	key    = flag.String("k", "", "128-bit key to Encrypt/Decrypt.")
-	pbkdf  = flag.String("p", "", "PBKDF2.")
+	pbkdf  = flag.String("p", "", "Password-based key derivation function.")
 	random = flag.Bool("r", false, "Generate random 128-bit cryptographic key.")
+	kdf    = flag.Int("h", 0, "HMAC-based key derivation function.")
 	salt   = flag.String("s", "", "Salt. (for PBKDF2)")
 )
 
@@ -46,6 +49,15 @@ func main() {
 			log.Fatal(err)
 		}
 		fmt.Println(hex.EncodeToString(key))
+		os.Exit(0)
+	}
+
+	if *kdf > 0 {
+		hash, err := Hkdf([]byte(*key), []byte(*salt), []byte(*aad))
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%x\n", hash[:*kdf/8])
 		os.Exit(0)
 	}
 
@@ -115,4 +127,21 @@ func main() {
 
 		os.Exit(0)
 	}
+}
+
+func Hkdf(master, salt, info []byte) ([128]byte, error) {
+	var myHash func() hash.Hash
+	myHash = func() hash.Hash {
+		return xoodyak.NewXoodyakHash()
+	}
+
+	hkdf := hkdf.New(myHash, master, salt, []byte(*aad))
+
+	key := make([]byte, *kdf/8)
+	_, err := io.ReadFull(hkdf, key)
+
+	var result [128]byte
+	copy(result[:], key)
+
+	return result, err
 }
