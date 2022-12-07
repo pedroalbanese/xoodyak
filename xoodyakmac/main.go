@@ -11,7 +11,10 @@ import (
 	"github.com/pedroalbanese/xoodoo/xoodyak"
 )
 
-var key = flag.String("key", "", "HMAC secret key.")
+var (
+	key    = flag.String("k", "", "HMAC secret key.")
+	target = flag.String("f", "", "Target file. ('-' for STDIN)")
+)
 
 func main() {
 	flag.Parse()
@@ -24,8 +27,17 @@ func main() {
 	}
 
 	var err error
+	var file io.Reader
+	if *target == "-" {
+		file = os.Stdin
+	} else {
+		file, err = os.Open(*target)
+		if err != nil {
+			log.Fatalf("failed opening file: %s", err)
+		}
+	}
 	h := xoodyak.NewXoodyakMac([]byte(*key))
-	if _, err = io.Copy(h, os.Stdin); err != nil {
+	if _, err = io.Copy(h, file); err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println(hex.EncodeToString(h.Sum(nil)))
