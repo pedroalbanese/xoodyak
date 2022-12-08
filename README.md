@@ -16,8 +16,7 @@ xoodyak [-d] -p "pass" [-i N] [-s "salt"] -f &lt;file.ext&gt;
   -d    Decrypt instead of Encrypt.
   -f string
         Target file. ('-' for STDIN)
-  -h int
-        HMAC-based key derivation function.
+  -h    HMAC-based key derivation function.
   -i int
         Iterations. (for PBKDF2) (default 1024)
   -k string
