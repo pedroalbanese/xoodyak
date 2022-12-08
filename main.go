@@ -18,13 +18,13 @@ import (
 
 var (
 	aad    = flag.String("a", "", "Additional Associated data.")
-	dec    = flag.Bool("d", false, "Decrypt instead of Encrypt.")
+	dec    = flag.Bool("d", false, "Decrypt instead Encrypt.")
 	file   = flag.String("f", "", "Target file. ('-' for STDIN)")
 	iter   = flag.Int("i", 1024, "Iterations. (for PBKDF2)")
 	key    = flag.String("k", "", "128-bit key to Encrypt/Decrypt.")
 	pbkdf  = flag.String("p", "", "Password-based key derivation function.")
 	random = flag.Bool("r", false, "Generate random 128-bit cryptographic key.")
-	kdf    = flag.Int("h", 0, "HMAC-based key derivation function.")
+	kdf    = flag.Bool("h", false, "HMAC-based key derivation function.")
 	salt   = flag.String("s", "", "Salt. (for PBKDF2)")
 )
 
@@ -32,8 +32,8 @@ func main() {
 	flag.Parse()
 
 	if len(os.Args) < 2 {
-		fmt.Fprintln(os.Stderr, "Xoodyak Encryption Tool - ALBANESE Research Lab (c) 2020-2022")
-		fmt.Fprintln(os.Stderr, "A Lightweight AEAD Cryptographic Scheme written in Pure Go\n")
+		fmt.Fprintln(os.Stderr, "Xoodyak Encryption Tool - ALBANESE Research Lab (c) 2023")
+		fmt.Fprintln(os.Stderr, "Lightweight AEAD Cryptographic Scheme written in Pure Go\n")
 		fmt.Fprintln(os.Stderr, "Usage of "+os.Args[0]+":")
 		fmt.Fprintln(os.Stderr, os.Args[0]+" [-d] -p \"pass\" [-i N] [-s \"salt\"] -f <file.ext>")
 		flag.PrintDefaults()
@@ -52,12 +52,12 @@ func main() {
 		os.Exit(0)
 	}
 
-	if *kdf > 0 {
+	if *kdf {
 		hash, err := Hkdf([]byte(*key), []byte(*salt), []byte(*aad))
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("%x\n", hash[:*kdf/8])
+		fmt.Printf("%x\n", hash[:128/8])
 		os.Exit(0)
 	}
 
@@ -137,7 +137,7 @@ func Hkdf(master, salt, info []byte) ([128]byte, error) {
 
 	hkdf := hkdf.New(myHash, master, salt, []byte(*aad))
 
-	key := make([]byte, *kdf/8)
+	key := make([]byte, 128/8)
 	_, err := io.ReadFull(hkdf, key)
 
 	var result [128]byte
