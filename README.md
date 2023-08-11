@@ -3,7 +3,7 @@
 [![GoDoc](https://godoc.org/github.com/pedroalbanese/xoodyak?status.png)](http://godoc.org/github.com/pedroalbanese/xoodyak)
 [![GitHub downloads](https://img.shields.io/github/downloads/pedroalbanese/xoodyak/total.svg?logo=github&logoColor=white)](https://github.com/pedroalbanese/xoodyak/releases)
 [![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/pedroalbanese/xoodyak)](https://golang.org)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/pedroalbanese/edgetk)](https://github.com/pedroalbanese/xoodyak/releases)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/pedroalbanese/xoodyak)](https://github.com/pedroalbanese/xoodyak/releases)
 
 [Xoodyak](https://csrc.nist.gov/CSRC/media/Projects/lightweight-cryptography/documents/round-2/spec-doc-rnd2/Xoodyak-spec-round2.pdf) is a lightweight, versatile, cryptographic scheme suitable in constrained environments. It can be used for hashing, encryption, MAC computation and authenticated encryption.
 
